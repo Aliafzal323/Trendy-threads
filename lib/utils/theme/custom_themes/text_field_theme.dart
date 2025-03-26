@@ -7,6 +7,7 @@ class CustomTextFormTheme {
     errorMaxLines: 5,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
+    hoverColor: Colors.green,
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.black),
     hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.black),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
@@ -31,7 +32,7 @@ class CustomTextFormTheme {
       borderRadius: BorderRadius.circular(14),
       borderSide: const BorderSide(
         width: 1,
-        color: Colors.black12,
+        color: Colors.green,
       ),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
@@ -52,6 +53,7 @@ class CustomTextFormTheme {
 
   static final darkInputDecorationTheme = InputDecorationTheme(
     errorMaxLines: 2,
+    hoverColor: Colors.green,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),

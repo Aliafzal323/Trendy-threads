@@ -16,6 +16,7 @@ class CustomAppTheme {
     useMaterial3: true,
     brightness: Brightness.light,
     fontFamily: 'Poppins',
+    primarySwatch: Colors.green,
     primaryColor: Colors.greenAccent,
     scaffoldBackgroundColor: Colors.white,
     textTheme: CustomTextTheme.lightTextTheme,
@@ -24,7 +25,7 @@ class CustomAppTheme {
     bottomSheetTheme: CustomBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: CustomElevatedButtonTheme.lightElevatedButtonTheme,
     checkboxTheme: CustomCheckBox.lightCheckBoxTheme,
-    outlinedButtonTheme: CustomOutlineButton.lightCustomOutlineButton,
+    outlinedButtonTheme: CustomOutlineButtonTheme.lightCustomOutlineButton,
     inputDecorationTheme: CustomTextFormTheme.lightInputDecorationTheme,
   );
 
@@ -33,6 +34,7 @@ class CustomAppTheme {
     useMaterial3: true,
     brightness: Brightness.dark,
     fontFamily: 'Poppins',
+    primarySwatch: Colors.green,
     primaryColor: Colors.greenAccent,
     scaffoldBackgroundColor: Colors.black,
     textTheme: CustomTextTheme.darkTextTheme,
@@ -41,7 +43,7 @@ class CustomAppTheme {
     bottomSheetTheme: CustomBottomSheetTheme.darkBottomSheetTheme,
     elevatedButtonTheme: CustomElevatedButtonTheme.darkElevatedButtonTheme,
     checkboxTheme: CustomCheckBox.darkCheckBoxTheme,
-    outlinedButtonTheme: CustomOutlineButton.darkCustomOutlineButton,
+    outlinedButtonTheme: CustomOutlineButtonTheme.darkCustomOutlineButton,
     inputDecorationTheme: CustomTextFormTheme.darkInputDecorationTheme,
   );
 }

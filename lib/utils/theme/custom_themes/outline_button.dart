@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomOutlineButton {
-  CustomOutlineButton._();
+class CustomOutlineButtonTheme {
+  CustomOutlineButtonTheme._();
 
   static final lightCustomOutlineButton = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
