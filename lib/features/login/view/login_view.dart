@@ -1,0 +1,237 @@
+import 'package:flutter/material.dart';
+import 'package:trendy_threads/utils/constants/asset_icons.dart';
+import 'package:trendy_threads/utils/constants/sizes.dart';
+import 'package:trendy_threads/widgets/asset_icon.dart';
+import 'package:trendy_threads/widgets/custom_elevated_button.dart';
+import 'package:trendy_threads/widgets/custom_outlined_button.dart';
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: AppSizes.appbarHeight,
+            left: AppSizes.defaultSpace,
+            right: AppSizes.defaultSpace,
+            bottom: AppSizes.defaultSpace,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const _TopHeaderSection(),
+              const SizedBox(
+                height: AppSizes.sm,
+              ),
+              const EmailTextField(),
+              const SizedBox(
+                height: AppSizes.spaceBtwInputFields,
+              ),
+              const _PasswordTextField(),
+              const SizedBox(
+                height: AppSizes.spaceBtwInputFields,
+              ),
+              const _RemeberAndForgotWidget(),
+              const SizedBox(
+                height: AppSizes.spaceBtwSection,
+              ),
+              const _SignInButton(),
+              const SizedBox(
+                height: AppSizes.spaceBtwItems,
+              ),
+              const _CreateAccountButton(),
+              const SizedBox(
+                height: AppSizes.spaceBtwItems,
+              ),
+              const _ORSignInWithWidget(),
+              const SizedBox(
+                height: AppSizes.spaceBtwItems,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomCircularContainer(
+                    icon: AssetIcons.google_icon,
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: AppSizes.spaceBtwItems),
+                  CustomCircularContainer(
+                    icon: AssetIcons.facebook_icon,
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomCircularContainer extends StatelessWidget {
+  const CustomCircularContainer({
+    super.key,
+    required this.icon,
+    required this.onTap,
+  });
+  final AssetIcons icon;
+  final Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(AppSizes.md),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey.withOpacity(0.5)),
+          borderRadius: BorderRadius.circular(80),
+        ),
+        child: AssetIcon.multicolor(icon),
+      ),
+    );
+  }
+}
+
+class _ORSignInWithWidget extends StatelessWidget {
+  const _ORSignInWithWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const Flexible(
+          child: Divider(
+              color: Colors.grey, thickness: 0.5, indent: 5, endIndent: 10),
+        ),
+        Text(
+          'Or Sign In With',
+          style: Theme.of(context).textTheme.labelMedium,
+        ),
+        const Flexible(
+          child: Divider(
+            color: Colors.grey,
+            thickness: 0.5,
+            indent: 5,
+            endIndent: 10,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CreateAccountButton extends StatelessWidget {
+  const _CreateAccountButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomOutlinedButton.expanded(
+        onPressed: () {}, text: 'Create Account');
+  }
+}
+
+class _SignInButton extends StatelessWidget {
+  const _SignInButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomElevatedButton.expanded(onPressed: () {}, text: 'Sign In');
+  }
+}
+
+class _RemeberAndForgotWidget extends StatelessWidget {
+  const _RemeberAndForgotWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Row(
+          children: [
+            Checkbox(
+              value: true,
+              onChanged: (value) {},
+            ),
+            const SizedBox(
+              width: AppSizes.xs,
+            ),
+            const Text('Remember me'),
+          ],
+        ),
+        const Spacer(),
+        TextButton(
+          onPressed: () {},
+          child: const Text('Forgot Password?'),
+        ),
+      ],
+    );
+  }
+}
+
+class _PasswordTextField extends StatelessWidget {
+  const _PasswordTextField();
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.password),
+          labelText: 'Password',
+          suffixIcon: Icon(Icons.remove_red_eye)),
+    );
+  }
+}
+
+class EmailTextField extends StatelessWidget {
+  const EmailTextField({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: const InputDecoration(
+        prefixIcon: Icon(Icons.email),
+        labelText: 'Email',
+      ),
+    );
+  }
+}
+
+class _TopHeaderSection extends StatelessWidget {
+  const _TopHeaderSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          fit: BoxFit.cover,
+          'assets/images/splash_image.png',
+          cacheHeight: 180,
+          cacheWidth: 200,
+        ),
+        Text(
+          'Welcome, Trendy Threads',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const SizedBox(
+          height: AppSizes.sm,
+        ),
+        Text(
+          'Discovered Limitless Choices and unmatched Quality.',
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+        const SizedBox(
+          height: AppSizes.sm,
+        ),
+      ],
+    );
+  }
+}
