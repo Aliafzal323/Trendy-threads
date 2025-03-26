@@ -1,0 +1,1 @@
+ C:\\Users\\hp\\Desktop\\trendy-threads\\trendy_threads\\.dart_tool\\flutter_build\\def6b68fa62f712f839228a1fb8ff6c6\\native_assets.yaml: 
