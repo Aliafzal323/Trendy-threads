@@ -1,41 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hp\\.gradle\\daemon\\8.3\\com.example.trendy_threads.app-mergeDebugResources-25:\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "com.example.trendy_threads.app-mergeDebugResources-25:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\Desktop\\trendy-threads\\trendy_threads\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,18",
                         "startColumns": "4,4",
-                        "startOffsets": "172,1094",
+                        "startOffsets": "175,1106",
                         "endLines": "11,20",
                         "endColumns": "12,12",
-                        "endOffsets": "747,1258"
-                    },
-                    "to": {
-                        "startLines": "2,10",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,507",
-                        "endLines": "9,12",
-                        "endColumns": "12,12",
-                        "endOffsets": "502,671"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.example.trendy_threads.app-mergeDebugResources-25:/values-night-v8/values-night-v8.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\hp\\Desktop\\trendy-threads\\trendy_threads\\android\\app\\src\\main\\res\\values-night\\styles.xml",
-                    "from": {
-                        "startLines": "3,-1",
-                        "startColumns": "4,-1",
-                        "startOffsets": "175,-1",
-                        "endLines": "11,-1",
-                        "endColumns": "12,-1",
-                        "endOffsets": "757,-1"
+                        "endOffsets": "757,1272"
                     },
                     "to": {
                         "startLines": "2,10",
