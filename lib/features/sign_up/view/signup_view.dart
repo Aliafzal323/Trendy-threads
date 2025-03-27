@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendy_threads/features/login/view/login_view.dart';
+import 'package:trendy_threads/features/login/login.dart';
 import 'package:trendy_threads/features/sign_up/view/verify_email/verify_email_page.dart';
 import 'package:trendy_threads/utils/constants/asset_icons.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';

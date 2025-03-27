@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:trendy_threads/features/sign_up/view/verify_email/success_screen.dart';
-import 'package:trendy_threads/utils/constants/sizes.dart';
-import 'package:trendy_threads/widgets/custom_elevated_button.dart';
+part of 'view.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -46,7 +43,6 @@ class ForgotPasswordScreen extends StatelessWidget {
                 child: Container(),
               ),
               const _SubmitButton(),
-              
             ],
           )),
     );

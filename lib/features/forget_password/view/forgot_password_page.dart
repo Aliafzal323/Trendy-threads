@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:trendy_threads/features/forget_password/view/forgot_password_view.dart';
+part of 'view.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
