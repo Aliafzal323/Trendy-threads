@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trendy_threads/features/login/view/login_view.dart';
+import 'package:trendy_threads/features/sign_up/view/verify_email/verify_email_page.dart';
 import 'package:trendy_threads/utils/constants/asset_icons.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';
 import 'package:trendy_threads/widgets/custom_checkbox.dart';
@@ -26,7 +27,6 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(
                 height: AppSizes.spaceBtwSection,
               ),
-
               const Row(
                 children: [
                   Expanded(child: _FirstNameTextField()),
@@ -36,12 +36,9 @@ class SignUpScreen extends StatelessWidget {
                   Expanded(child: _LastNameTextField()),
                 ],
               ),
-
               const SizedBox(
                 height: AppSizes.md,
               ),
-              //   ],
-              // )
               const _EmailTextField(),
               const SizedBox(
                 height: AppSizes.md,
@@ -106,7 +103,9 @@ class _TermsAndPolicyWidget extends StatelessWidget {
                   .textTheme
                   .bodyMedium
                   ?.copyWith(color: dark ? Colors.white : Colors.green)
-                  .apply(decoration: TextDecoration.underline),
+                  .apply(
+                    decoration: TextDecoration.underline,
+                  ),
               text: 'Terms of use',
             ),
           ],
@@ -190,7 +189,10 @@ class _CreateAccountButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomElevatedButton.expanded(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => const VerifyEmailPage()));
+      },
       text: 'Create Account',
     );
   }

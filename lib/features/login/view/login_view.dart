@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trendy_threads/features/forget_password/view/forgot_password_page.dart';
 import 'package:trendy_threads/features/sign_up/view/signup_page.dart';
 import 'package:trendy_threads/utils/constants/asset_icons.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';
@@ -153,7 +154,14 @@ class _RemeberAndForgotWidget extends StatelessWidget {
         ),
         const Spacer(),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ForgotPasswordPage(),
+              ),
+            );
+          },
           child: const Text('Forgot Password?'),
         ),
       ],
