@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:trendy_threads/utils/constants/asset_icons.dart';
-import 'package:trendy_threads/utils/constants/sizes.dart';
-import 'package:trendy_threads/widgets/asset_icon.dart';
-import 'package:trendy_threads/widgets/custom_elevated_button.dart';
-import 'package:trendy_threads/widgets/custom_outlined_button.dart';
+part of 'view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -32,11 +27,11 @@ class LoginScreen extends StatelessWidget {
               ),
               const _PasswordTextField(),
               const SizedBox(
-                height: AppSizes.spaceBtwInputFields,
+                height: AppSizes.xs,
               ),
               const _RemeberAndForgotWidget(),
               const SizedBox(
-                height: AppSizes.spaceBtwSection,
+                height: AppSizes.spaceBtwInputFields,
               ),
               const _SignInButton(),
               const SizedBox(
@@ -46,7 +41,9 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: AppSizes.spaceBtwItems,
               ),
-              const _ORSignInWithWidget(),
+              const ORWithWidget(
+                dividerText: 'Or Sign In With',
+              ),
               const SizedBox(
                 height: AppSizes.spaceBtwItems,
               ),
@@ -97,41 +94,22 @@ class CustomCircularContainer extends StatelessWidget {
   }
 }
 
-class _ORSignInWithWidget extends StatelessWidget {
-  const _ORSignInWithWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Flexible(
-          child: Divider(
-              color: Colors.grey, thickness: 0.5, indent: 5, endIndent: 10),
-        ),
-        Text(
-          'Or Sign In With',
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
-        const Flexible(
-          child: Divider(
-            color: Colors.grey,
-            thickness: 0.5,
-            indent: 5,
-            endIndent: 10,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class _CreateAccountButton extends StatelessWidget {
   const _CreateAccountButton();
 
   @override
   Widget build(BuildContext context) {
     return CustomOutlinedButton.expanded(
-        onPressed: () {}, text: 'Create Account');
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const SignUpPage(),
+          ),
+        );
+      },
+      text: 'Create Account',
+    );
   }
 }
 
@@ -140,7 +118,10 @@ class _SignInButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomElevatedButton.expanded(onPressed: () {}, text: 'Sign In');
+    return CustomElevatedButton.expanded(
+      onPressed: () {},
+      text: 'Sign In',
+    );
   }
 }
 
@@ -165,7 +146,14 @@ class _RemeberAndForgotWidget extends StatelessWidget {
         ),
         const Spacer(),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ForgotPasswordPage(),
+              ),
+            );
+          },
           child: const Text('Forgot Password?'),
         ),
       ],
