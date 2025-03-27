@@ -24,7 +24,6 @@ class CheckBoxWithText extends StatelessWidget {
           onChanged: onChanged,
           // title:
         ),
-        const SizedBox(width: 8),
         Expanded(
           child: child ??
               const Text(

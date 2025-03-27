@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:trendy_threads/features/login/view/login_view.dart';
+
+part of 'view.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
