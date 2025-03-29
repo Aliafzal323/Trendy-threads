@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:trendy_threads/features/shop/home/view/home_screen.dart';
+
+part of 'view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
