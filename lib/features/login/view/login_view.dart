@@ -73,10 +73,10 @@ class CustomCircularContainer extends StatelessWidget {
   const CustomCircularContainer({
     super.key,
     required this.icon,
-    required this.onTap,
+    this.onTap,
   });
   final AssetIcons icon;
-  final Function() onTap;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
