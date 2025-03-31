@@ -14,33 +14,67 @@ class _BodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(HomeController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeaderWidget(
+            const HeaderWidget(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const _AppBarWidget(),
-                  const SizedBox(
+                  _AppBarWidget(),
+                  SizedBox(
                     height: AppSizes.spaceBtwSection,
                   ),
-                  const _SearchInStoreField(),
-                  const SizedBox(
+                  _SearchInStoreField(),
+                  SizedBox(
                     height: AppSizes.spaceBtwSection,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Text(
-                      'Popular Categories',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
+                  TypeWithSuffixWidget(
+                    title: 'Popular Categories',
                   ),
-                  const SizedBox(height: AppSizes.lg),
-                  const _PopularCategoriesWidget(),
-                  const SizedBox(
+                  SizedBox(
+                    height: AppSizes.lg,
+                  ),
+                  _PopularCategoriesWidget(),
+                  SizedBox(
                     height: AppSizes.spaceBtwItems,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: AppSizes.lg,
+            ),
+            CustomSliderWidget(
+              controller: controller,
+            ),
+            const SizedBox(
+              height: AppSizes.lg,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TypeWithSuffixWidget(
+                    title: 'Popular Products',
+                    suffix: 'View All',
+                    onTap: () {},
+                  ),
+                  const SizedBox(
+                    height: AppSizes.lg,
+                  ),
+                  CustomGridView(
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return VeticalProductCard(
+                        imageUrl: 'assets/images/splash_image.png',
+                        onPressed: () {},
+                      );
+                    },
                   ),
                 ],
               ),
@@ -48,6 +82,95 @@ class _BodyView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProductTitleText extends StatelessWidget {
+  const ProductTitleText({
+    super.key,
+    this.title,
+    this.maxLines,
+    this.textAlign,
+    this.style,
+  });
+  final String? title;
+  final int? maxLines;
+  final TextAlign? textAlign;
+  final TextStyle? style;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title ?? '',
+      style: style ?? Theme.of(context).textTheme.titleSmall,
+      maxLines: maxLines ?? 2,
+      textAlign: textAlign ?? TextAlign.left,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+}
+
+class CustomCircularIcon extends StatelessWidget {
+  const CustomCircularIcon({
+    super.key,
+    this.icon,
+    this.onPressed,
+  });
+  final Icon? icon;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: 0,
+      top: 12,
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+              color: Colors.white.withOpacity(
+                0.9,
+              ),
+              borderRadius: BorderRadius.circular(
+                100,
+              )),
+          child: icon,
+        ),
+      ),
+    );
+  }
+}
+
+class TypeWithSuffixWidget extends StatelessWidget {
+  const TypeWithSuffixWidget({
+    super.key,
+    this.title,
+    this.suffix,
+    this.onTap,
+  });
+  final String? title;
+  final String? suffix;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          title ?? '',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const Spacer(),
+        GestureDetector(
+          onTap: onTap,
+          child: Text(
+            suffix ?? '',
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -82,16 +205,20 @@ class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
     super.key,
     required this.child,
+    this.color,
+    this.height,
   });
   final Widget child;
+  final Color? color;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: color ?? Colors.green,
       padding: const EdgeInsets.all(0),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.5,
+        height: height ?? MediaQuery.of(context).size.height * 0.5,
         child: Column(
           children: [
             Stack(
@@ -99,14 +226,14 @@ class HeaderWidget extends StatelessWidget {
                 Positioned(
                   top: -150,
                   right: -250,
-                  child: CustomCircularContainer(
+                  child: CustomCircleContainer(
                     backgroundColor: Colors.white.withOpacity(0.3),
                   ),
                 ),
                 Positioned(
                   top: 100,
                   right: -300,
-                  child: CustomCircularContainer(
+                  child: CustomCircleContainer(
                     backgroundColor: Colors.white.withOpacity(0.3),
                   ),
                 ),
@@ -120,31 +247,37 @@ class HeaderWidget extends StatelessWidget {
   }
 }
 
-class CustomCircularContainer extends StatelessWidget {
-  const CustomCircularContainer({
+class CustomCircleContainer extends StatelessWidget {
+  const CustomCircleContainer({
     super.key,
-    this.width = 400,
-    this.height = 400,
-    this.radius = 400,
-    this.padding = 0,
+    this.width,
+    this.height,
+    this.radius = AppSizes.cardRadiusLg,
+    this.padding,
     this.backgroundColor,
+    this.margin,
+    this.child,
   });
   final double? width;
   final double? height;
   final double radius;
-  final double padding;
+  final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;
+  final EdgeInsetsGeometry? margin;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: margin,
       width: width,
       height: height,
-      padding: EdgeInsets.all(padding),
+      padding: padding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
         color: backgroundColor,
       ),
+      child: child,
     );
   }
 }
