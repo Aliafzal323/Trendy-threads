@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trendy_threads/features/sign_up/view/signup_page.dart';
+import 'package:trendy_threads/features/sign_up/view/view.dart';
 import 'package:trendy_threads/utils/constants/asset_icons.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';
 import 'package:trendy_threads/widgets/asset_icon.dart';

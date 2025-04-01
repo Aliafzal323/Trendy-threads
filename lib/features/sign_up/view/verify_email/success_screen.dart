@@ -4,6 +4,8 @@ import 'package:trendy_threads/utils/constants/sizes.dart';
 import 'package:trendy_threads/widgets/custom_elevated_button.dart';
 
 class SuccessScreen extends StatefulWidget {
+  static String route() => 'success_screen';
+
   const SuccessScreen({super.key, this.title, this.subtitle});
   final String? title;
   final String? subtitle;
