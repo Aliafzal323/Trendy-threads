@@ -74,7 +74,9 @@ class _OnboardingForwardButton extends StatelessWidget {
               : Colors.green.withOpacity(0.9),
           shape: const CircleBorder(),
         ),
-        child: const Icon(Icons.arrow_forward_ios),
+        child: const Icon(
+          Icons.arrow_forward_ios,
+        ),
       ),
     );
   }
