@@ -28,7 +28,7 @@ class DeviceUtils {
   }
 
   static double getScreenHeight(BuildContext context) {
-    return MediaQuery.of(Get.context!).size.height;
+    return MediaQuery.of(context).size.height;
   }
 
   static double getScreenWidth(BuildContext context) {
