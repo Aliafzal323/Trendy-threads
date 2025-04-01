@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trendy_threads/features/login/view/view.dart';
 
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
@@ -12,14 +13,18 @@ class OnBoardingController extends GetxController {
 
   void dotNavigationClick(index) {
     currentIndex.value = index;
-    pageController.jumpTo(index);
+    pageController.animateToPage(index,
+        duration: const Duration(
+          milliseconds: 300,
+        ),
+        curve: Curves.easeInCubic);
   }
 
   void skipPage() {
     pageController.animateToPage(
       2,
       duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInExpo,
+      curve: Curves.easeInCubic,
     );
   }
 
@@ -28,10 +33,12 @@ class OnBoardingController extends GetxController {
       pageController.animateToPage(
         currentIndex.value + 1,
         duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
+        curve: Curves.easeInCubic,
       );
     } else {
-      // Navigate to home or next screen
+      Get.to(
+        () => const LoginPage(),
+      );
     }
   }
 }

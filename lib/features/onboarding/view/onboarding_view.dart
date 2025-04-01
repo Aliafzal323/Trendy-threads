@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:trendy_threads/features/onboarding/controller/onboarding_controller.dart';
-import 'package:trendy_threads/utils/constants/sizes.dart';
-import 'package:trendy_threads/utils/helpers/custom_helpers.dart';
+part of 'view.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -11,35 +6,25 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(OnBoardingController());
+    final onBoarding = OnBoardingModel.onboardingItems;
     return Scaffold(
       body: Stack(
         children: [
-          PageView(
+          PageView.builder(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
-            children: const [
-              OnBoardingWidget(
-                image: 'assets/images/splash_image.png',
-                title: 'Choose Your Product',
-                description:
-                    'Welcome to a world of limitless choices - Your Perfect Product Awaits!',
-              ),
-              OnBoardingWidget(
-                image: 'assets/images/splash_image.png',
-                title: 'Choose Your Product',
-                description:
-                    'Welcome to a world of limitless choices - Your Perfect Product Awaits!',
-              ),
-              OnBoardingWidget(
-                image: 'assets/images/splash_image.png',
-                title: 'Choose Your Product',
-                description:
-                    'Welcome to a world of limitless choices - Your Perfect Product Awaits!',
-              )
-            ],
+            itemCount: onBoarding.length,
+            itemBuilder: (context, index) {
+              final data = onBoarding[index];
+              return OnBoardingWidget(
+                image: data.image,
+                title: data.title,
+                description: data.description,
+              );
+            },
           ),
-          const _OnboardingForwardButton(),
           const _OnBoardingSkipButton(),
+          const _OnboardingForwardButton(),
           const _NavigationDots()
         ],
       ),
@@ -54,7 +39,6 @@ class _NavigationDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = CustomHelpers.isDark(context);
     final controller = OnBoardingController.instance;
-
     return Positioned(
       bottom: AppSizes.xl,
       left: AppSizes.defaultSpace,
@@ -87,7 +71,7 @@ class _OnboardingForwardButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: isDark
               ? Colors.grey.withOpacity(0.8)
-              : Colors.green.withOpacity(0.6),
+              : Colors.green.withOpacity(0.9),
           shape: const CircleBorder(),
         ),
         child: const Icon(Icons.arrow_forward_ios),
@@ -127,28 +111,34 @@ class OnBoardingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          height: MediaQuery.of(context).size.height * 0.6,
-          width: MediaQuery.of(context).size.width * 0.5,
-          image,
-        ),
-        Text(
-          title,
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-        const SizedBox(
-          height: AppSizes.spaceBtwItems,
-        ),
-        Text(
-          description,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: Colors.black.withOpacity(0.5),
-              ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16.0,
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            height: MediaQuery.of(context).size.height * 0.6,
+            width: MediaQuery.of(context).size.width * 0.5,
+            image,
+          ),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const SizedBox(
+            height: AppSizes.spaceBtwItems,
+          ),
+          Text(
+            description,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: Colors.grey),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

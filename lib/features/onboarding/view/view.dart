@@ -1,0 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:trendy_threads/features/onboarding/Model/onboarding_model.dart';
+import 'package:trendy_threads/features/onboarding/controller/onboarding_controller.dart';
+import 'package:trendy_threads/utils/constants/sizes.dart';
+import 'package:trendy_threads/utils/helpers/custom_helpers.dart';
+part 'onboarding_view.dart';
+part 'onboarding_page.dart';

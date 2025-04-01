@@ -13,20 +13,19 @@ class OnBoardingModel {
       title: 'Choose Your Product',
       description:
           'Welcome to a world of limitless choices - Your Perfect Product Awaits!',
-      image: 'assets/images/Onboarding1st.jpg',
+      image: 'assets/images/splash_image.png',
     ),
     OnBoardingModel(
       title: 'Select Payment Method',
       description:
           "For seamless Transcations, Choose Your Preferred Payment Option - Your Convenience Our Pirority!",
-      image: 'assets/images/Onboarding2nd.jpg',
+      image: 'assets/images/splash_image.png',
     ),
     OnBoardingModel(
       title: 'Deliver At You Door Step',
-      image:
-          'From Our Doorstep To Yours - Swift, Secure and Contactless Delivery!',
       description:
-          'Showcase your properties effortlessly and reach a broader audience.',
+          'From Our Doorstep To Yours - Swift, Secure and Contactless Delivery!',
+      image: 'assets/images/splash_image.png',
     ),
   ];
 }

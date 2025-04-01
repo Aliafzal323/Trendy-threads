@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:trendy_threads/features/onboarding/view/onboarding_view.dart';
+
+
+part of 'view.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
