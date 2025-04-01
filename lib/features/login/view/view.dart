@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:trendy_threads/features/sign_up/view/view.dart';
 import 'package:trendy_threads/utils/constants/asset_icons.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';

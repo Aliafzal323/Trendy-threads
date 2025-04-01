@@ -120,8 +120,9 @@ class _SignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomElevatedButton.expanded(
       onPressed: () {
-        Get.to(
-          () => const TabPage(),
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const TabPage()),
         );
       },
       text: 'Sign In',

@@ -11,12 +11,18 @@ class _SplashViewState extends State<SplashView> {
   bool showImage = false;
 
   @override
-  void initState() {
+    void initState() {
     super.initState();
+
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) {
+        context.go(OnBoardingPage.route());
+      }
+    });
+
     Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         showImage = true;
-        context.push(OnBoardingPage.route());
       });
     });
   }
@@ -29,7 +35,7 @@ class _SplashViewState extends State<SplashView> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       // body: AnimatedCrossFade(
-      //   duration: const Duration(milliseconds: 1500),
+      //   duration: const Duration(milliseconds: 1500),`
       //   //firstCurve: const Cubic(-0.68, -0.55, 0.265, 1.55),
       //   //sizeCurve: const Cubic(0.68, -0.55, 0.265, 1.55),
       //   crossFadeState:
@@ -40,7 +46,7 @@ class _SplashViewState extends State<SplashView> {
       //   ),
       //   secondChild: Image.asset(
       //     AssetImages.splash_background(),
-      //   ),
+      //   ),`
       // ),
       body: Image.asset(
         'assets/images/splash_image.png',

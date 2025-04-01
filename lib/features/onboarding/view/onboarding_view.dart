@@ -66,7 +66,7 @@ class _OnboardingForwardButton extends StatelessWidget {
       right: AppSizes.defaultSpace,
       child: ElevatedButton(
         onPressed: () {
-          OnBoardingController.instance.nextPage();
+          OnBoardingController.instance.nextPage(context);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: isDark
