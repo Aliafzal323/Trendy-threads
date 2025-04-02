@@ -1,8 +1,9 @@
-
 part of 'view.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+
+  static String route() => '/login';
 
   @override
   Widget build(BuildContext context) {

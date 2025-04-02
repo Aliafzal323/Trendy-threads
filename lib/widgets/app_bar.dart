@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';
 import 'package:trendy_threads/utils/device/device_utility.dart';
 
@@ -32,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
-                onPressed: () => Get.back(),
+                onPressed: () => context.pop(),
                 icon: const Icon(Icons.arrow_back, color: Colors.black))
             : leadingIcon != null
                 ? IconButton(

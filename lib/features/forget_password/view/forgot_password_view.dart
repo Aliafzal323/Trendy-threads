@@ -70,16 +70,11 @@ class _SubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomElevatedButton.expanded(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => const SuccessScreen(
-              title: 'Password Reset Email Sent',
-              subtitle:
-                  " We have sent you a secure Link to safely Change Your Password and keep Your Account Protected",
-            ),
-          ),
-        );
+        context.push(SuccessScreen.route(), extra: {
+          'title': 'Password Reset Email Sent',
+          'subtitle':
+              " We have sent you a secure Link to safely Change Your Password and keep Your Account Protected",
+        });
       },
       text: 'Submit',
     );
