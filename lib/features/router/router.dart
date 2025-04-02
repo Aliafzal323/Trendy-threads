@@ -12,6 +12,7 @@ class AppRouter {
     List<NavigatorObserver>? observers,
   }) : router = GoRouter(
             navigatorKey: navigatorKey,
+            debugLogDiagnostics: true,
             initialLocation: intiialRoute ?? AppRoutes.initial,
             routes: routes ?? AppRoutes.routes,
             observers: [...?observers],

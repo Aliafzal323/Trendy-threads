@@ -24,6 +24,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   CustomListTile(
                     onTap: () {
+                      context.push(EditProfilePage.route());
                       // Get.to(
                       //   () => const EditProfilePage(),
                       // );

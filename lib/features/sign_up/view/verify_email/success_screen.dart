@@ -4,7 +4,7 @@ import 'package:trendy_threads/utils/constants/sizes.dart';
 import 'package:trendy_threads/widgets/custom_elevated_button.dart';
 
 class SuccessScreen extends StatefulWidget {
-  static String route() => 'success_screen';
+  static String route() => '/success';
 
   const SuccessScreen({super.key, this.title, this.subtitle});
   final String? title;
@@ -42,6 +42,8 @@ class _SuccessScreenState extends State<SuccessScreen>
 
   @override
   Widget build(BuildContext context) {
+    final title = widget.title ?? 'Default Title';
+    final subtitle = widget.subtitle ?? 'Default Subtitle';
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -74,12 +76,12 @@ class _SuccessScreenState extends State<SuccessScreen>
               height: AppSizes.md,
             ),
             Text(
-              widget.title ?? '',
+              title,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: AppSizes.spaceBtwItems),
             Text(
-              widget.subtitle ?? '',
+              subtitle,
               style: Theme.of(context).textTheme.labelMedium,
               textAlign: TextAlign.center,
             ),

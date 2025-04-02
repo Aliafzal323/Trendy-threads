@@ -1,6 +1,5 @@
 part of 'view.dart';
 
-
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
@@ -71,7 +70,7 @@ class _TermsAndPolicyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark =CustomHelpers.isDark(context);
+    final dark = CustomHelpers.isDark(context);
     return CheckBoxWithText(
       value: true,
       onChanged: (value) {},
@@ -184,8 +183,7 @@ class _CreateAccountButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomElevatedButton.expanded(
       onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => const VerifyEmailPage()));
+        context.push(VerifyEmailPage.route());
       },
       text: 'Create Account',
     );
