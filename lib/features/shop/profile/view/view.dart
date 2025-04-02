@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trendy_threads/features/shop/home/view/view.dart';
 import 'package:trendy_threads/features/shop/profile/view/edit_profile/edit_profile_page.dart';
 import 'package:trendy_threads/utils/constants/sizes.dart';

@@ -28,7 +28,7 @@ class OnBoardingController extends GetxController {
     );
   }
 
-  void nextPage() {
+  void nextPage(BuildContext context) {
     if (currentIndex.value < 2) {
       pageController.animateToPage(
         currentIndex.value + 1,
@@ -36,8 +36,9 @@ class OnBoardingController extends GetxController {
         curve: Curves.easeInCubic,
       );
     } else {
-      Get.to(
-        () => const LoginPage(),
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const LoginPage()),
       );
     }
   }
