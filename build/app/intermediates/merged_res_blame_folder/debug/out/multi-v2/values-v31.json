@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.trendy_threads.app-mergeDebugResources-25:/values-v31/values-v31.xml",
+            "outputFile": "com.example.trendy_threads.app-mergeDebugResources-28:/values-v31/values-v31.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\Desktop\\trendy-threads\\trendy_threads\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
                     "from": {
                         "startLines": "3,17",
                         "startColumns": "4,4",
-                        "startOffsets": "176,1064",
+                        "startOffsets": "173,1052",
                         "endLines": "10,19",
                         "endColumns": "12,12",
-                        "endOffsets": "706,1230"
+                        "endOffsets": "696,1216"
                     },
                     "to": {
                         "startLines": "2,10",
