@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "127570866822",
+    "project_id": "trendy-threads-26c7e",
+    "storage_bucket": "trendy-threads-26c7e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127570866822:android:90226d128a8063898a5707",
+        "android_client_info": {
+          "package_name": "com.example.trendy_threads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127570866822-pdque01euh1anfn92lvq0au3bpsb50bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgM0REMY8qGKjFwTyr9sIQ91GN6LIrjbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127570866822-4jiv0avk27oid3t709na0lqlq9ng94do.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "127570866822-q4vpnshiedessq0qe0ph9t4hj8l5ub3s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trendyThreads"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
