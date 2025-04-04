@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trendy_threads/features/router/routes.dart';
 
-
 class AppRouter {
   AppRouter({
     String? intiialRoute,
@@ -13,6 +12,7 @@ class AppRouter {
     List<NavigatorObserver>? observers,
   }) : router = GoRouter(
             navigatorKey: navigatorKey,
+            debugLogDiagnostics: true,
             initialLocation: intiialRoute ?? AppRoutes.initial,
             routes: routes ?? AppRoutes.routes,
             observers: [...?observers],

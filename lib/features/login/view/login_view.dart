@@ -101,12 +101,10 @@ class _CreateAccountButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomOutlinedButton.expanded(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => const SignUpPage(),
-          ),
+        Get.to(
+          () => const SignUpPage(),
         );
+        // context.push(SignUpPage.route());
       },
       text: 'Create Account',
     );
@@ -120,9 +118,7 @@ class _SignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomElevatedButton.expanded(
       onPressed: () {
-        Get.to(
-          () => const TabPage(),
-        );
+        context.go(TabPage.route());
       },
       text: 'Sign In',
     );
@@ -151,12 +147,13 @@ class _RemeberAndForgotWidget extends StatelessWidget {
         const Spacer(),
         TextButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => const ForgotPasswordPage(),
-              ),
-            );
+            context.push(ForgotPasswordPage.route());
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (_) => const ForgotPasswordPage(),
+            //   ),
+            // );
           },
           child: const Text('Forgot Password?'),
         ),
