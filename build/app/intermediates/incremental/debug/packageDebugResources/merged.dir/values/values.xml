@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="default_web_client_id" translatable="false">127570866822-pdque01euh1anfn92lvq0au3bpsb50bd.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">127570866822</string>
+    <string name="google_api_key" translatable="false">AIzaSyCgM0REMY8qGKjFwTyr9sIQ91GN6LIrjbQ</string>
+    <string name="google_app_id" translatable="false">1:127570866822:android:90226d128a8063898a5707</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCgM0REMY8qGKjFwTyr9sIQ91GN6LIrjbQ</string>
+    <string name="google_storage_bucket" translatable="false">trendy-threads-26c7e.firebasestorage.app</string>
+    <string name="project_id" translatable="false">trendy-threads-26c7e</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         
         <item name="android:windowBackground">@drawable/launch_background</item>

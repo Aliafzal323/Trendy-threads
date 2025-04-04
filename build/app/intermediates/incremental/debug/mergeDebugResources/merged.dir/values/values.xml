@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <attr format="color" name="animationBackgroundColor"/>
     <attr format="enum" name="finishPrimaryWithPlaceholder">
         
@@ -149,6 +149,7 @@
     <id name="view_tree_saved_state_registry_owner"/>
     <id name="view_tree_view_model_store_owner"/>
     <item name="visible_removing_fragment_view_tag" type="id"/>
+    <integer name="google_play_services_version">12451000</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="call_notification_answer_action">Answer</string>
@@ -158,10 +159,18 @@
     <string name="call_notification_incoming_text">Incoming call</string>
     <string name="call_notification_ongoing_text">Ongoing call</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
+    <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
+    <string name="default_web_client_id" translatable="false">127570866822-pdque01euh1anfn92lvq0au3bpsb50bd.apps.googleusercontent.com</string>
     <string name="fallback_menu_item_copy_link">Copy link</string>
     <string name="fallback_menu_item_open_in_browser">Open in browser</string>
     <string name="fallback_menu_item_share_link">Share link</string>
+    <string name="gcm_defaultSenderId" translatable="false">127570866822</string>
+    <string name="google_api_key" translatable="false">AIzaSyCgM0REMY8qGKjFwTyr9sIQ91GN6LIrjbQ</string>
+    <string name="google_app_id" translatable="false">1:127570866822:android:90226d128a8063898a5707</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCgM0REMY8qGKjFwTyr9sIQ91GN6LIrjbQ</string>
+    <string name="google_storage_bucket" translatable="false">trendy-threads-26c7e.firebasestorage.app</string>
+    <string name="project_id" translatable="false">trendy-threads-26c7e</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         
@@ -225,14 +234,23 @@
         <attr format="reference" name="fontProviderCerts"/>
         
         <attr name="fontProviderFetchStrategy">
-            
+            <!-- The blocking font fetch works as follows.
+              First, check the local cache, then if the requested font is not cached, request the
+              font from the provider and wait until it is finished.  You can change the length of
+              the timeout by modifying fontProviderFetchTimeout.  If the timeout happens, the
+              default typeface will be used instead. -->
             <enum name="blocking" value="0"/>
-            
+            <!-- The async font fetch works as follows.
+              First, check the local cache, then if the requeted font is not cached, trigger a
+              request the font and continue with layout inflation. Once the font fetch succeeds, the
+              target text view will be refreshed with the downloaded font data. The
+              fontProviderFetchTimeout will be ignored if async loading is specified. -->
             <enum name="async" value="1"/>
         </attr>
         
         <attr format="integer" name="fontProviderFetchTimeout">
-            
+            <!-- A special value for the timeout. In this case, the blocking font fetching will not
+              timeout and wait until a reply is received from the font provider. -->
             <enum name="forever" value="-1"/>
         </attr>
         
