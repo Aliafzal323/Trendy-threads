@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:trendy_threads/bindings/bindings.dart';
 // import 'package:trendy_threads/features/router/router.dart';
 import 'package:trendy_threads/utils/theme/theme.dart';
 
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
       // routeInformationProvider: _router.routeInformationProvider,
       // routerDelegate: _router.routerDelegate,
       debugShowCheckedModeBanner: false,
+      initialBinding: GeneralBindings(),
       themeMode: ThemeMode.system,
       darkTheme: CustomAppTheme.darkTheme,
       theme: CustomAppTheme.lightTheme,
