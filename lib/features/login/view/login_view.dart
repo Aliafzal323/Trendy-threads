@@ -101,7 +101,10 @@ class _CreateAccountButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomOutlinedButton.expanded(
       onPressed: () {
-        context.push(SignUpPage.route());
+        Get.to(
+          () => const SignUpPage(),
+        );
+        // context.push(SignUpPage.route());
       },
       text: 'Create Account',
     );
