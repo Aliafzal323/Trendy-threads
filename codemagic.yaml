@@ -5,11 +5,17 @@ workflows:
     instance_type: linux_x2
     environment:
       flutter: stable
+      vars:
+        GITHUB_TOKEN
     triggering:
       events:
         - push
+        - tag
       branch_patterns:
         - pattern: main
+          include: true
+          source: true
+        - pattern: "*"
           include: true
           source: true
     scripts:
@@ -29,14 +35,24 @@ workflows:
         script: |
           flutter build apk --release
           flutter build appbundle --release
+      - name: Publish to GitHub
+        script: |
+          # Use tag name when build is tag-triggered; otherwise create release-$BUILD_NUMBER
+          if [ -n "$CM_TAG" ]; then
+            RELEASE_TAG="$CM_TAG"
+          else
+            RELEASE_TAG="release-$PROJECT_BUILD_NUMBER"
+          fi
+
+          APK="build/app/outputs/flutter-apk/app-release.apk"
+          AAB="build/app/outputs/bundle/release/app-release.aab"
+
+          gh release create "$RELEASE_TAG" \
+            --repo Aliafzal323/Trendy-threads \
+            --title "Android Release $RELEASE_TAG" \
+            --notes "Release Android APK and App Bundle" \
+            "$APK" \
+            "$AAB"
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
-    publishing:
-      github:
-        auth:
-          personal_access_token: $GITHUB_TOKEN
-        repository: Aliafzal323/Trendy-threads
-        tag_name: release-$PROJECT_BUILD_NUMBER
-        title: Android Release $PROJECT_BUILD_NUMBER
-        description: Release Android APK and App Bundle
