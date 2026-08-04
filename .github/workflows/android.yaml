@@ -1,45 +1,67 @@
-name: Dart
+name: Android Release
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: "3.29.2"
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Clean dependencies
-        run: flutter clean
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "zulu"
+          java-version: "17"
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      - name: Decode keystore
+        run: |
+          echo "${{ secrets.CM_KEYSTORE }}" | base64 --decode > android/app/upload-keystore.jks
+          printf '%s\n' \
+            "storePassword=${{ secrets.CM_KEYSTORE_PASSWORD }}" \
+            "keyPassword=${{ secrets.CM_KEY_PASSWORD }}" \
+            "keyAlias=${{ secrets.CM_KEY_ALIAS }}" \
+            "storeFile=upload-keystore.jks" \
+            > android/key.properties
 
       - name: Get dependencies
         run: flutter pub get
-        
-      - name: Start android build
+
+      - name: Build release APK
         run: flutter build apk --release
 
-      - name: Extract version from pubspec.yaml
-        id: get_version
+      - name: Build release App Bundle
+        run: flutter build appbundle --release
+
+      - name: Read app version
+        id: version
         run: |
           VERSION=$(grep '^version:' pubspec.yaml | awk '{print $2}')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=android-v${VERSION}-${{ github.run_number }}" >> "$GITHUB_OUTPUT"
 
-      - name: Push to Releases
-        uses: ncipollo/release-action@v1
-        
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
         with:
-          artifacts: "build/app/outputs/apk/release/*.apk"
-          tag: android-v${{ steps.get_version.outputs.version }}
-          token: ${{ secrets.TOKEN }}
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Android Release ${{ steps.version.outputs.version }} (#${{ github.run_number }})
+          body: Release Android APK and App Bundle
+          files: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
